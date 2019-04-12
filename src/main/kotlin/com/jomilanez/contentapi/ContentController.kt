@@ -10,9 +10,14 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api/v1")
-class ContentController {
+@Api(
+    description = "Delivers content.",
+    tags = ["Content"]
+)
+class DefaultContentController {
     @GetMapping("/content")
     @ResponseStatus(OK)
+    @ApiOperation("Delivers content")
     fun getDefaultContent(
     ): List<News> = listOf(News(id = "id", title = "sample title", category = "sports"))
 }
